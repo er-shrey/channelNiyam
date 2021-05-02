@@ -1,0 +1,47 @@
+<div>
+  <div class="container" *ngIf="niyam.background != ''" #generatedImage>
+    <img [src]="'assets/images/background/' + niyam.background" alt="background" class="background">
+    
+    <div class="parv-prabhu">
+      <span *ngIf="niyam.is_pakshik_parv">{{niyam.tithi}} पर्व</span>
+      <img [src]="'assets/images/prabhu/' + niyam.prabhu" alt="{{niyam.prabhu}}" class="prabhu">
+      <span *ngIf="niyam.is_pakshik_parv">{{niyam.tithi}} पर्व</span>
+    </div>
+    
+    <span class="mantra">{{niyam.mantra}}</span>
+    
+    <div class="date-day">
+      <span class="date">{{niyam.date}}, </span>
+      <span class="day">{{niyam.day}}</span>
+    </div>
+    
+    <div class="month-tithi">
+      <span class="title">आज की तिथि</span>
+      <span class="title">:</span>
+      <span class="month">{{niyam.month}}</span>
+      <span class="paksh">{{niyam.paksh}},</span>
+      <span class="tithi">{{niyam.tithi}}</span>
+    </div>
+    
+    <span class="kalyanak" *ngIf="niyam.kalyanak != ''">{{niyam.kalyanak}}</span>
+
+    <span class="niyam-title">आज का नियम</span>
+
+    <span class="niyam">{{niyam.niyam}}</span>
+
+    <img src="assets/images/logo.png" alt="Jain Bhajan" class="logo">
+
+    <span class="disclaimer">
+      अगर आप भी एक दिन का नियम लेना चाहते हैं तो Comment Box में नियम है जरूर लिखें
+    </span>
+    
+    <span class="footer">Jain Bhajan</span>
+  </div>
+
+  <input type="date" class="date-selector" [ngModel] ="date" (ngModelChange)="dateChanged($event)">
+  <button class="download-btn" (click)="download()">Download</button>
+
+  <div class="no-niyam" *ngIf="niyam.background == ''">
+    No Niyam is Added
+  </div>
+</div>
