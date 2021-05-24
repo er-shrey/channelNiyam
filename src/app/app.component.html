@@ -3,9 +3,9 @@
     <img [src]="'assets/images/background/' + niyam.background" alt="background" class="background">
     
     <div class="parv-prabhu">
-      <span *ngIf="niyam.is_pakshik_parv">{{niyam.tithi}} पर्व</span>
+      <span *ngIf="niyam.is_pakshik_parv == 'TRUE'">{{niyam.tithi}} पर्व</span>
       <img [src]="'assets/images/prabhu/' + niyam.prabhu" alt="{{niyam.prabhu}}" class="prabhu">
-      <span *ngIf="niyam.is_pakshik_parv">{{niyam.tithi}} पर्व</span>
+      <span *ngIf="niyam.is_pakshik_parv == 'TRUE'">{{niyam.tithi}} पर्व</span>
     </div>
     
     <span class="mantra">{{niyam.mantra}}</span>
@@ -35,7 +35,7 @@
       अगर आप भी एक दिन का नियम लेना चाहते हैं तो Comment Box में नियम है जरूर लिखें
     </span>
     
-    <span class="footer">Jain Bhajan</span>
+    <span class="footer">Jinvani Bhakt</span>
   </div>
 
   <input type="date" class="date-selector" [ngModel] ="date" (ngModelChange)="dateChanged($event)">

@@ -13,7 +13,7 @@ export interface Niyam {
   mantra: string;
   background: string;
   kalyanak: string;
-  is_pakshik_parv: boolean;
+  is_pakshik_parv: string;
 };
 
 @Component({
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit{
     mantra: "",
     background: "",
     kalyanak: "",
-    is_pakshik_parv: false
+    is_pakshik_parv: "FALSE"
   };
 
   date: string = "";
@@ -54,15 +54,15 @@ export class AppComponent implements OnInit{
     });
   }
 
-  dateChanged(event: any) {
+  dateChanged(event: string) {
     let dateArray = event.split("-");
     this.date = dateArray[2] + "/" + dateArray[1] + "/" + dateArray[0];
-    this.getNiyam();
+    this.getNiyam(dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0]);
   }
 
-  getNiyam() {
+  getNiyam(date: string) {
     for (let niyam of this.niyamList) {
-      if (niyam.date == this.date) {
+      if (niyam.date == date) {
         this.niyam = niyam;
         break;
       }
